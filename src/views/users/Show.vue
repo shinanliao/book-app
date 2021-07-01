@@ -1,14 +1,20 @@
 <template>
   <div class="users-show">
+    <h1>My Profile Page</h1>
+    <strong>My Biography:</strong>
+    <br />
+    {{ user.biography }}
+    <br />
+    <br />
+    <strong>Currently Reading:</strong>
+    <br />
+    {{ user.currently_reading }}
+    <ul>
+      <li class="error" v-for="error in errors" v-bind:key="error">
+        {{ error }}
+      </li>
+    </ul>
     <form v-on:submit.prevent="updateUser()">
-      <h1>{{ user.username }}'s Profile Page</h1>
-      <p>My Biography: {{ user.biography }}</p>
-      <p>Currently Reading: {{ user.currently_reading }}</p>
-      <ul>
-        <li class="error" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
       <label>
         Username:
         <input type="text" v-model="editUserParams.username" />
@@ -42,14 +48,13 @@ export default {
   data: function () {
     return {
       user: {},
-      user_books: {},
       errors: [],
       editUserParams: {},
     };
   },
   created: function () {
     axios.get(`/users/${this.$route.params.id}`).then((response) => {
-      console.log(response.data);
+      console.log("User object", response.data);
       this.user = response.data;
       this.user_books = response.data;
     });
@@ -60,7 +65,7 @@ export default {
         .patch(`/users/${this.$route.params.id}`, this.editUserParams)
         .then((response) => {
           console.log(response.data);
-          this.$router.push(`/user/${response.data.id}`);
+          this.user = response.data;
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

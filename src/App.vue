@@ -3,13 +3,13 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
-      <router-link :to="`/users/${UserId()}`">My Profile</router-link>
+      <router-link to="/signup" v-if="!isLoggedIn()">Signup</router-link>
       |
-      <router-link to="/signup">Signup</router-link>
+      <router-link to="/login" v-if="!isLoggedIn()">Login</router-link>
       |
-      <router-link to="/login">Login</router-link>
+      <router-link :to="`/users/${userID()}`" v-if="isLoggedIn()">My Profile</router-link>
       |
-      <router-link to="/logout">Logout</router-link>
+      <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
     </div>
     <router-view />
   </div>
@@ -44,7 +44,7 @@ export default {
     isLoggedIn: function () {
       return localStorage.getItem("jwt");
     },
-    UserId: function () {
+    userID: function () {
       return localStorage.getItem("user_id");
     },
   },
