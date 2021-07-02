@@ -9,6 +9,8 @@
       |
       <router-link :to="`/users/${userID()}`" v-if="isLoggedIn()">My Profile</router-link>
       |
+      <router-link to="/user_books" v-if="isLoggedIn()">My Bookshelf</router-link>
+      |
       <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
     </div>
     <router-view />

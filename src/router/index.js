@@ -5,6 +5,7 @@ import Signup from "../views/Signup.vue";
 import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import UsersShow from "../views/users/Show.vue";
+import UserBooks from "../views/user_books/Index.vue";
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path: "/users/:id",
     name: "users-show",
     component: UsersShow,
+  },
+  {
+    path: "/user_books",
+    name: "user_books",
+    component: UserBooks,
   },
 ];
 
