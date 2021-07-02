@@ -8,8 +8,8 @@
         </li>
       </ul>
       <div class="form-group">
-        <label>Name:</label>
-        <input type="text" class="form-control" v-model="newUserParams.name" />
+        <label>Username:</label>
+        <input type="text" class="form-control" v-model="newUserParams.username" />
       </div>
       <div class="form-group">
         <label>Email:</label>
@@ -22,6 +22,14 @@
       <div class="form-group">
         <label>Password confirmation:</label>
         <input type="password" class="form-control" v-model="newUserParams.password_confirmation" />
+      </div>
+      <div class="form-group">
+        <label>Biography:</label>
+        <input type="text" class="form-control" v-model="newUserParams.biography" />
+      </div>
+      <div class="form-group">
+        <label>Currently Reading:</label>
+        <input type="text" class="form-control" v-model="newUserParams.currently_reading" />
       </div>
       <input type="submit" class="btn btn-primary" value="Submit" />
     </form>

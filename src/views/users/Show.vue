@@ -11,7 +11,7 @@
     {{ user.currently_reading }}
     <form v-on:submit.prevent="updateUser()">
       <br />
-      <strong>Edit Your Account Information</strong>
+      <strong>Update Your Account Information</strong>
       <ul>
         <li class="error" v-for="error in errors" v-bind:key="error">
           {{ error }}
