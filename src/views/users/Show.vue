@@ -1,6 +1,6 @@
 <template>
   <div class="users-show">
-    <h1>My Profile Page</h1>
+    <h1>{{ user.username }}'s Profile</h1>
     <strong>My Biography:</strong>
     <br />
     {{ user.biography }}
