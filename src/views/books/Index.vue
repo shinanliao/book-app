@@ -2,13 +2,20 @@
   <div class="books-index">
     <h3>Search for Books:</h3>
     <form v-on:submit.prevent="findBook()">
-      Title:
-      <input type="text" v-model="query" />
+      Search:
+      <input type="text" v-model="query" placeholder="Title or Author"/>
+      <br />
       <button v-on:click="findBook()">Find Book</button>
       <div v-for="book in books" v-bind:key="book.id">
-        <p>{{ book.volumeInfo.title }} </p>
-        <p>{{ book.volumeInfo.authors }} </p>
-
+        <span class="image">
+        <img v-bind:src="book.volumeInfo.imageLinks.thumbnail" v-bind:alt="book.name" />
+      </span>
+      <br />
+        <p>Title: {{ book.volumeInfo.title }}</p>
+        <p>Author: {{ book.volumeInfo.authors }}</p>
+        <p>Description: {{ book.volumeInfo.description }}</p>
+        <p>Pages: {{ book.volumeInfo.pageCount }}</p>
+        <p>Subject: {{ book.volumeInfo.categories }}</p>
       </div>
     </form>
   </div>
