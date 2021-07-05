@@ -8,14 +8,13 @@
       <button v-on:click="findBook()">Find Book</button>
       <div v-for="book in books" v-bind:key="book.id">
         <span class="image">
-        <img v-bind:src="book.volumeInfo.imageLinks.thumbnail" v-bind:alt="book.name" />
+        <img v-bind:src="book.volumeInfo.imageLinks.thumbnail" v-bind:alt="book.title" />
       </span>
       <br />
         <p>Title: {{ book.volumeInfo.title }}</p>
         <p>Author: {{ book.volumeInfo.authors }}</p>
         <p>Description: {{ book.volumeInfo.description }}</p>
-        <p>Pages: {{ book.volumeInfo.pageCount }}</p>
-        <p>Subject: {{ book.volumeInfo.categories }}</p>
+        <router-link tag="button" :to="`/books/${book.id}`">See More Information</router-link>
       </div>
     </form>
   </div>

@@ -2,7 +2,7 @@
   <div class="user_books">
     <h2>My Bookshelf</h2>
     <div v-for="user_book in user_books" v-bind:key="user_book.id">
-        <span class="image">
+      <span class="image">
         <img v-bind:src="user_book.book.image" />
       </span>
       <br />

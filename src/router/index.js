@@ -7,6 +7,7 @@ import Logout from "../views/Logout.vue";
 import UsersShow from "../views/users/Show.vue";
 import UserBooks from "../views/user_books/Index.vue";
 import BooksIndex from "../views/books/Index.vue";
+import BooksShow from "../views/books/Show.vue";
 
 Vue.use(VueRouter);
 
@@ -45,6 +46,11 @@ const routes = [
     path: "/books",
     name: "books-index",
     component: BooksIndex,
+  },
+  {
+    path: "/books/:id",
+    name: "books-show",
+    component: BooksShow,
   },
 ];
 
