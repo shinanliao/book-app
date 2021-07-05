@@ -1,8 +1,10 @@
 <template>
   <div class="user_books">
     <strong>My Bookshelf</strong>
-    <div v-for="user_book in user_books" v-bind:key="user_book.id" />
-    <p>{{ user_books }}</p>
+    <div v-for="user_book in user_books" v-bind:key="user_book.id">
+      <!-- need to fix how it displays -->
+      <p>{{ user_books }}</p>
+    </div>
   </div>
 </template>
 
@@ -23,6 +25,5 @@ export default {
     });
   },
   methods: {},
-
 };
 </script>

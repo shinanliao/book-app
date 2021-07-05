@@ -6,13 +6,14 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import UsersShow from "../views/users/Show.vue";
 import UserBooks from "../views/user_books/Index.vue";
+import BooksIndex from "../views/books/Index.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "home",
+    name: "Home",
     component: Home,
   },
   {
@@ -39,6 +40,11 @@ const routes = [
     path: "/user_books",
     name: "user_books",
     component: UserBooks,
+  },
+  {
+    path: "/books",
+    name: "books-index",
+    component: BooksIndex,
   },
 ];
 

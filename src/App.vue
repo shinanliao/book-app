@@ -11,6 +11,8 @@
       |
       <router-link to="/user_books" v-if="isLoggedIn()">My Bookshelf</router-link>
       |
+      <router-link to="/books" v-if="isLoggedIn()">Search</router-link>
+      |
       <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
     </div>
     <router-view />
