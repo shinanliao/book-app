@@ -8,7 +8,7 @@
     <p>Description: {{ book.volumeInfo.description }}</p>
     <p>Pages: {{ book.volumeInfo.pageCount }}</p>
     <p>Subject: {{ book.volumeInfo.categories }}</p>
-    <!-- <button v-on:click="addBooktoShelf()">Add</button> -->
+    <button v-on:click="addBooktoShelf()">Add to Bookshelf</button>
   </div>
 </template>
 
@@ -19,7 +19,9 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      book: [],
+      book: {},
+      errors: [],
+      newBookParam: {},
     };
   },
   created: function () {
@@ -29,12 +31,19 @@ export default {
     });
   },
   methods: {
-    // addBooktoShelf: function () {
-    //   axios.post("/user_books").then((response) => {
-    //     console.log(response.data);
-    //     this.$router.push("/users_books");
-    //   });
-    // },
+    addBooktoShelf: function () {
+      this.newBookParam.google_books_api_id = this.$route.params.id;
+      axios
+        .post("/user_books", this.newBookParam)
+        .then((response) => {
+          console.log("Successfully Added!", response.data);
+          this.$router.push("/user_books");
+        })
+        .catch((error) => {
+          console.log(error.response.data.errors);
+          this.errors = error.response.data.errors;
+        });
+    },
   },
 };
 </script>

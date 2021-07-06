@@ -9,6 +9,9 @@
     <strong>Currently Reading:</strong>
     <br />
     {{ user.currently_reading }}
+    <br />
+    <br />
+    <router-link to="/user_books">My Bookshelf</router-link>
     <form v-on:submit.prevent="updateUser()">
       <br />
       <strong>Update Your Account Information</strong>

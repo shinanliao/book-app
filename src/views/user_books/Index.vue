@@ -8,10 +8,10 @@
       <br />
       <strong>Title:</strong>
       <p>{{ user_book.book.title }}</p>
-      <strong>Comments:</strong>
-      <p>{{ user_book.comments }}</p>
       <strong>Description:</strong>
       <p>{{ user_book.book.description }}</p>
+      <strong>Comments:</strong>
+      <p>{{ user_book.comments }}</p>
     </div>
   </div>
 </template>
@@ -24,6 +24,7 @@ export default {
   data: function () {
     return {
       user_books: [],
+      editUserBookParams: {},
     };
   },
   created: function () {
