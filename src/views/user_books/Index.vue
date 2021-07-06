@@ -12,6 +12,17 @@
       <p>{{ user_book.book.description }}</p>
       <strong>Comments:</strong>
       <p>{{ user_book.comments }}</p>
+      <form v-on:submit.prevent="editBook()">
+        <ul>
+          <li class="error" v-for="error in errors" v-bind:key="error">
+            {{ error }}
+          </li>
+        </ul>
+        <label>
+          <input type="text" v-model="user_book.comments" placeholder="Write comments here" />
+        </label>
+        <input type="submit" value="Save Changes" />
+      </form>
     </div>
   </div>
 </template>
@@ -24,7 +35,8 @@ export default {
   data: function () {
     return {
       user_books: [],
-      editUserBookParams: {},
+      errors: [],
+      editUserBook: {},
     };
   },
   created: function () {
@@ -33,6 +45,22 @@ export default {
       this.user_books = response.data;
     });
   },
-  methods: {},
+  methods: {
+    editBook: function () {
+      var params = {
+        comments: this.user_books.comments,
+      };
+      axios
+        .patch(`/user_books/${this.$route.params.id}`, params)
+        .then((response) => {
+          console.log(response.data);
+          this.user_books = response.data;
+        })
+        .catch((error) => {
+          this.errors = error.response.data.errors;
+          console.log(error.response.data.errors);
+        });
+    },
+  },
 };
 </script>
