@@ -12,7 +12,7 @@
       <p>{{ user_book.book.description }}</p>
       <strong>Comments:</strong>
       <p>{{ user_book.comments }}</p>
-      <form v-on:submit.prevent="editBook()">
+      <form v-on:submit.prevent="editUserBook(user_book)">
         <ul>
           <li class="error" v-for="error in errors" v-bind:key="error">
             {{ error }}
@@ -36,7 +36,6 @@ export default {
     return {
       user_books: [],
       errors: [],
-      editUserBook: {},
     };
   },
   created: function () {
@@ -46,15 +45,14 @@ export default {
     });
   },
   methods: {
-    editBook: function () {
+    editUserBook: function (user_book) {
       var params = {
-        comments: this.user_books.comments,
+        comments: user_book.comments,
       };
       axios
-        .patch(`/user_books/${this.$route.params.id}`, params)
+        .patch(`/user_books/${user_book.id}`, params)
         .then((response) => {
           console.log(response.data);
-          this.user_books = response.data;
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
