@@ -3,7 +3,10 @@
     <h3>Search for Books:</h3>
     <form v-on:submit.prevent="findBook()">
       Search:
+      <br />
       <input type="text" v-model="query" placeholder="Title or Author" />
+      <br />
+      <input type="text" v-model="genre" placeholder="Genre" />
       <br />
       <button v-on:click="findBook()">Find Book</button>
       <div v-for="book in books" v-bind:key="book.id">
@@ -28,11 +31,16 @@ export default {
   data: function () {
     return {
       query: "",
+      genre: "",
       books: [],
     };
   },
   methods: {
     findBook: function () {
+      axios.get(`/books?query=+subject:${this.genre}`).then((response) => {
+        console.log("Books", response.data);
+        this.books = response.data;
+      });
       axios.get(`/books?query=${this.query}`).then((response) => {
         console.log("Books", response.data);
         this.books = response.data;

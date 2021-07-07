@@ -53,8 +53,6 @@ export default {
           .delete(`/user_books/${user_book.id}`, user_book)
           .then((response) => {
             console.log(response.data);
-            this.user_books = response.data;
-            this.$router.push("/user_books");
           })
           .catch((error) => {
             this.errors = error.response.data.errors;

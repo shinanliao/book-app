@@ -3,6 +3,8 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
+      <router-link to="/books" v-if="isLoggedIn()">Search Books</router-link>
+      |
       <router-link to="/signup" v-if="!isLoggedIn()">Signup</router-link>
       |
       <router-link to="/login" v-if="!isLoggedIn()">Login</router-link>
@@ -10,8 +12,6 @@
       <router-link :to="`/users/${userID()}`" v-if="isLoggedIn()">My Profile</router-link>
       |
       <router-link to="/user_books" v-if="isLoggedIn()">My Bookshelf</router-link>
-      |
-      <router-link to="/books" v-if="isLoggedIn()">Search</router-link>
       |
       <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
     </div>
