@@ -22,6 +22,8 @@
           <input type="text" v-model="user_book.comments" placeholder="Write comments here" />
         </label>
         <input type="submit" value="Save Changes" />
+        <br />
+        <button v-on:click="destroyBook(user_book)">Delete Book From Shelf</button>
       </form>
     </div>
   </div>
@@ -45,6 +47,20 @@ export default {
     });
   },
   methods: {
+    destroyBook: function (user_book) {
+      if (confirm("Are you sure you want to delete this book from your bookshelf?")) {
+        axios
+          .delete(`/user_books/${user_book.id}`, user_book)
+          .then((response) => {
+            console.log(response.data);
+            this.user_books = response.data;
+            this.$router.push("/user_books");
+          })
+          .catch((error) => {
+            this.errors = error.response.data.errors;
+          });
+      }
+    },
     editUserBook: function (user_book) {
       var params = {
         comments: user_book.comments,
