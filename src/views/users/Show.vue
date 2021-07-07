@@ -83,6 +83,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.user = response.data;
+          this.editUserParams = {};
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

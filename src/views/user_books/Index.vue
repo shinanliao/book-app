@@ -22,9 +22,10 @@
           <input type="text" v-model="user_book.comments" placeholder="Write comments here" />
         </label>
         <input type="submit" value="Save Changes" />
-        <br />
-        <button v-on:click="destroyBook(user_book)">Delete Book From Shelf</button>
       </form>
+      <button v-on:click="destroyBook(user_book)">Delete Book From Shelf</button>
+      <br />
+      <br />
     </div>
   </div>
 </template>
@@ -36,7 +37,7 @@ import axios from "axios";
 export default {
   data: function () {
     return {
-      user_books: [],
+      user_books: {},
       errors: [],
     };
   },
@@ -67,6 +68,7 @@ export default {
         .patch(`/user_books/${user_book.id}`, params)
         .then((response) => {
           console.log(response.data);
+          this.user_book = response.data;
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

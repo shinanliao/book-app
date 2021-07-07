@@ -3,7 +3,7 @@
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
-      <router-link to="/books" v-if="isLoggedIn()">Search Books</router-link>
+      <router-link to="/books" v-if="isLoggedIn()">Search for a Book</router-link>
       |
       <router-link to="/signup" v-if="!isLoggedIn()">Signup</router-link>
       |
