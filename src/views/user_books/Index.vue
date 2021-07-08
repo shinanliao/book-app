@@ -8,6 +8,11 @@
       <br />
       <strong>Title:</strong>
       <p>{{ user_book.book.title }}</p>
+      <form v-on:click.prevent="updateHaveRead(user_book)">
+        <input type="checkbox" id="checkbox" v-model="user_book.have_read" />
+        <label for="checkbox">{{ message }}</label>
+      </form>
+      <br />
       <strong>Description:</strong>
       <p>{{ user_book.book.description }}</p>
       <strong>Comments:</strong>
@@ -39,6 +44,7 @@ export default {
     return {
       user_books: {},
       errors: [],
+      message: "Have Read",
     };
   },
   created: function () {
@@ -48,6 +54,15 @@ export default {
     });
   },
   methods: {
+    updateHaveRead: function (user_book) {
+      var params = {
+        have_read: user_book.have_read,
+      };
+      axios.patch(`/user_books/${user_book.id}`, params).then((response) => {
+        console.log(response.data);
+        this.user_book = response.data;
+      });
+    },
     destroyBook: function (user_book) {
       if (confirm("Are you sure you want to delete this book from your bookshelf?")) {
         axios
