@@ -15,6 +15,10 @@
       |
       <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
     </div>
+    <div v-if="flashMessage">
+      {{ flashMessage }}
+      <button v-on:click="flashMessage = ''">Dismiss</button>
+    </div>
     <router-view />
   </div>
 </template>

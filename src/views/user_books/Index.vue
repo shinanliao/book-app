@@ -70,6 +70,7 @@ export default {
           .delete(`/user_books/${user_book.id}`, user_book)
           .then((response) => {
             console.log("Success!", response.data);
+            this.$parent.flashMessage = "Book Deleted!";
             this.$router.push("/books");
           })
           .catch((error) => {
