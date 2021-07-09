@@ -55,6 +55,7 @@ export default {
   },
   methods: {
     updateHaveRead: function (user_book) {
+      user_book.have_read = !user_book.have_read;
       var params = {
         have_read: user_book.have_read,
       };
@@ -68,7 +69,8 @@ export default {
         axios
           .delete(`/user_books/${user_book.id}`, user_book)
           .then((response) => {
-            console.log(response.data);
+            console.log("Success!", response.data);
+            this.$router.push("/books");
           })
           .catch((error) => {
             this.errors = error.response.data.errors;
