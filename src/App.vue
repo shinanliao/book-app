@@ -1,5 +1,60 @@
 <template>
   <div id="app">
+    <header id="topnav">
+      <div class="container">
+        <a href="#" class="logo-mobile">
+          <img src="images/logo.png" alt="logo" />
+        </a>
+        <div class="menu-extras">
+          <div class="menu-item">
+            <!-- Mobile menu toggle-->
+            <a class="navbar-toggle">
+              <div class="lines">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </a>
+            <!-- End mobile menu toggle-->
+          </div>
+        </div>
+
+        <div id="navigation">
+          <!-- Navigation Menu-->
+          <ul class="navigation-menu">
+            <li>
+              <a href="index.html">Home</a>
+            </li>
+
+            <li class="has-submenu">
+              <a href="#">Features</a>
+            </li>
+
+            <li>
+              <a href="javascript:void(0);">Lifestyle</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">Travel</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);">Music</a>
+            </li>
+            <li>
+              <a href="about.html">About</a>
+            </li>
+            <li>
+              <a href="contact.html">Contact</a>
+            </li>
+            <li>
+              <a href="javascript:void(0);" class="toggle-search" data-target="#search-wrap">
+                <i class="mdi mdi-magnify noti-icon"></i>
+              </a>
+            </li>
+          </ul>
+          <!-- End navigation menu-->
+        </div>
+      </div>
+    </header>
     <div id="nav">
       <router-link to="/">Home</router-link>
       |
@@ -23,28 +78,7 @@
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-}
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+<style></style>
 
 <script>
 export default {

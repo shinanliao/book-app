@@ -8,10 +8,16 @@
       <br />
       <strong>Title:</strong>
       <p>{{ user_book.book.title }}</p>
-      <form v-on:click.prevent="updateHaveRead(user_book)">
-        <input type="checkbox" id="checkbox" v-model="user_book.have_read" />
-        <label for="checkbox">{{ message }}</label>
-      </form>
+      <!-- <form v-on:click.prevent="updateHaveRead(user_book)"> -->
+      <input
+        type="checkbox"
+        id="checkbox"
+        v-model="user_book.have_read"
+        v-on:click.prevent="updateHaveRead(user_book)"
+      />
+      {{ user_book.have_read }}
+      <label for="checkbox">{{ message }}</label>
+      <!-- </form> -->
       <br />
       <strong>Description:</strong>
       <p>{{ user_book.book.description }}</p>
@@ -61,7 +67,7 @@ export default {
       };
       axios.patch(`/user_books/${user_book.id}`, params).then((response) => {
         console.log(response.data);
-        this.user_book = response.data;
+        user_book.have_read = !user_book.have_read;
       });
     },
     destroyBook: function (user_book) {
