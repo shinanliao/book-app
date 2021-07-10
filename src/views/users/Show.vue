@@ -13,7 +13,7 @@
               <p class="text-center text-center mt-0 mb-4 pb-3 text">
                 {{ user.biography }}
               </p>
-              <h5 class="text-center mt-0 mb-4 pb-0 text">I'm Currently Reading:</h5>
+              <h5 class="text-center mt-0 mb-4 pb-0 text"><b>I'm Currently Reading:</b></h5>
               <p class="text-center text-center mt-0 mb-4 pb-3 text">
                 {{ user.currently_reading }}
               </p>

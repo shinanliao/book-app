@@ -1,10 +1,33 @@
 <template>
   <div class="home">
-    <h1>Your Personal Bookshelf</h1>
-    <p>
-      A website for aspiring readers to search for books and add them to your bookshelf with your own personal comments.
-    </p>
-    <p>Login or Signup to get started!</p>
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <!-- Content-->
+          <div class="col-12">
+            <!-- Post-->
+            <article class="post">
+              <h1 class="text-center mt-0 mb-2 pb-4 text-uppercase">
+                <b>
+                  Personal
+                  <br />
+                  Bookshelf
+                </b>
+              </h1>
+              <h6 class="text-center mt-0 mb-2 pb-4">
+                A website for aspiring readers to search for books and add them to your bookshelf with your own personal
+                comments.
+                <br />
+                Login or Signup to get started.
+              </h6>
+              <div class="post-preview">
+                <img src="images/books.jpg" alt="" class="img-fluid rounded" />
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
