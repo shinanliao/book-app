@@ -1,17 +1,89 @@
 <template>
   <div class="users-show">
-    <h1>{{ user.username }}'s Profile</h1>
-    <strong>My Biography:</strong>
-    <br />
-    {{ user.biography }}
-    <br />
-    <br />
-    <strong>Currently Reading:</strong>
-    <br />
-    {{ user.currently_reading }}
-    <br />
-    <br />
-    <router-link to="/user_books">My Bookshelf</router-link>
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <!-- Content-->
+          <div class="col-lg-8">
+            <!-- Post-->
+            <article class="post">
+              <h5 class="text-center mt-0 mb-5 pb-3 text-uppercase">
+                <b>{{ user.username }}'s Profile</b>
+              </h5>
+
+              <p class="text-center"></p>
+              <p>
+                {{ user.biography }}
+              </p>
+              <p>I'm currently reading: {{ user.currently_reading }}</p>
+              <div class="text-center">
+                <router-link to="/user_books" class="btn btn-outline-custom">My Bookshelf</router-link>
+              </div>
+              <form action="#" method="post" class="mt-4">
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input
+                        id="author"
+                        class="form-control"
+                        placeholder="Name*"
+                        name="author"
+                        type="text"
+                        required=""
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input
+                        id="email"
+                        class="form-control"
+                        placeholder="Email*"
+                        name="email"
+                        type="text"
+                        required=""
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <input id="subject" class="form-control" placeholder="Subject" name="subject" type="text" />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <textarea
+                        id="comment"
+                        class="form-control"
+                        rows="5"
+                        placeholder="Your Message*"
+                        name="comment"
+                        required=""
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group text-right">
+                      <button name="submit" type="submit" id="submit" class="btn btn-dark">Send</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <form v-on:submit.prevent="updateUser()">
       <br />
       <strong>Update Your Account Information</strong>
