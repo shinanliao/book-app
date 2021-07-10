@@ -3,7 +3,6 @@
     <section class="section">
       <div class="container">
         <div class="row justify-content-center">
-          <!-- Content-->
           <div class="col-8">
             <!-- Post-->
             <article class="post">
@@ -13,45 +12,62 @@
                 </li>
               </ul>
               <h3 class="text-center mt-0 mb-5 pb-3 text-uppercase"><b>Search for a Book</b></h3>
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Title or Author" type="text" v-model="query" />
-                  </div>
-                </div>
+              <div class="form-group text-center">
+                <input class="form-control" placeholder="Title or Author" type="text" v-model="query" />
               </div>
-              <div class="row">
-                <div class="col-sm-6">
-                  <div class="form-group">
-                    <input class="form-control" placeholder="Genre" type="text" v-model="genre" />
-                  </div>
-                </div>
+
+              <div class="form-group text-center">
+                <input class="form-control" placeholder="Genre" type="text" v-model="genre" />
               </div>
-              <div class="form-group text-right">
+
+              <div class="form-group text-center">
                 <button v-on:click="findBook()" name="Search" type="submit" id="Search" class="btn btn-outline-custom">
                   Search
                 </button>
               </div>
-              <form action="#" method="post" class="mt-4">
-                <div v-for="book in books" v-bind:key="book.id">
-                  <span class="image">
-                    <img v-bind:src="book.volumeInfo.imageLinks.thumbnail" v-bind:alt="book.title" />
-                  </span>
-                  <br />
-                  <p>Title: {{ book.volumeInfo.title }}</p>
-                  <p>Author: {{ book.volumeInfo.authors }}</p>
-                  <p>Description: {{ book.volumeInfo.description }}</p>
-                  <button v-on:click="addBooktoShelf(book)">Add to Bookshelf</button>
-                  <router-link tag="button" :to="`/books/${book.id}`">See More Information</router-link>
-                </div>
-              </form>
             </article>
-            <!-- Post end-->
+            <section class="section">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8">
+                    <article class="post">
+                      <div class="text-center post-header">
+                        <div v-for="book in books" v-bind:key="book.id">
+                          <form v-on:submit.prevent="addBooktoShelf(book)" method="post" class="mt-4">
+                            <span class="image">
+                              <img v-bind:src="book.volumeInfo.imageLinks.thumbnail" v-bind:alt="book.title" />
+                            </span>
+                            <br />
+                            <h3 class="text-center mt-2 mb-3 pb-3 text-uppercase">
+                              <b>{{ book.volumeInfo.title }}</b>
+                            </h3>
+                            <h5 class="text-center mt-0 mb-3 pb-3 text">
+                              <b>by {{ book.volumeInfo.authors[0] }}</b>
+                            </h5>
+                            <h6 class="text-center mt-0 mb-3 pb-3 text">
+                              <b>{{ book.volumeInfo.description }}</b>
+                            </h6>
+                            <div class="form-group text-right">
+                              <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">
+                                Add to Bookshelf
+                              </button>
+                            </div>
+                            <div class="form-group text-right">
+                              <router-link tag="button" :to="`/books/${book.id}`" class="btn btn-outline-custom">
+                                See More Information
+                              </router-link>
+                            </div>
+                          </form>
+                        </div>
+                      </div>
+                    </article>
+                  </div>
+                </div>
+              </div>
+            </section>
           </div>
-          <!-- Content end-->
         </div>
       </div>
-      <!-- end container -->
     </section>
   </div>
 </template>
