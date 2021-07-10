@@ -7,42 +7,61 @@
           <div class="col-lg-8">
             <!-- Post-->
             <article class="post">
-              <h5 class="text-center mt-0 mb-5 pb-3 text-uppercase">
+              <h2 class="text-center mt-0 mb-4 pb-0 text">
                 <b>{{ user.username }}'s Profile</b>
-              </h5>
-
-              <p class="text-center"></p>
-              <p>
+              </h2>
+              <p class="text-center text-center mt-0 mb-4 pb-3 text">
                 {{ user.biography }}
               </p>
-              <p>I'm currently reading: {{ user.currently_reading }}</p>
+              <h5 class="text-center mt-0 mb-4 pb-0 text">I'm Currently Reading:</h5>
+              <p class="text-center text-center mt-0 mb-4 pb-3 text">
+                {{ user.currently_reading }}
+              </p>
               <div class="text-center">
                 <router-link to="/user_books" class="btn btn-outline-custom">My Bookshelf</router-link>
               </div>
-              <form action="#" method="post" class="mt-4">
+              <br />
+              <br />
+              <h5 class="text-center mt-0 mb-2 pb-3 text"><b>Update Account</b></h5>
+              <form v-on:submit.prevent="updateUser()" action="#" method="post" class="mt-4">
+                <ul>
+                  <li class="error" v-for="error in errors" v-bind:key="error">
+                    {{ error }}
+                  </li>
+                </ul>
                 <div class="row">
                   <div class="col-sm-6">
                     <div class="form-group">
                       <input
-                        id="author"
                         class="form-control"
-                        placeholder="Name*"
-                        name="author"
+                        placeholder="Username"
                         type="text"
-                        required=""
+                        v-model="editUserParams.username"
                       />
                     </div>
                   </div>
-
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="Email" type="text" v-model="editUserParams.email" />
+                    </div>
+                  </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <input
-                        id="email"
                         class="form-control"
-                        placeholder="Email*"
-                        name="email"
+                        placeholder="Password"
                         type="text"
-                        required=""
+                        v-model="editUserParams.password"
+                      />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input
+                        class="form-control"
+                        placeholder="Password Confirmation"
+                        type="text"
+                        v-model="editUserParams.password_confirmation"
                       />
                     </div>
                   </div>
@@ -50,7 +69,13 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group">
-                      <input id="subject" class="form-control" placeholder="Subject" name="subject" type="text" />
+                      <input
+                        id="subject"
+                        class="form-control"
+                        placeholder="Currently Reading"
+                        type="text"
+                        v-model="editUserParams.currently_reading"
+                      />
                     </div>
                   </div>
                 </div>
@@ -62,9 +87,8 @@
                         id="comment"
                         class="form-control"
                         rows="5"
-                        placeholder="Your Message*"
-                        name="comment"
-                        required=""
+                        placeholder="About Me"
+                        v-model="editUserParams.biography"
                       ></textarea>
                     </div>
                   </div>
@@ -73,7 +97,18 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group text-right">
-                      <button name="submit" type="submit" id="submit" class="btn btn-dark">Send</button>
+                      <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">Send</button>
+                    </div>
+                    <div class="form-group text-right">
+                      <button
+                        v-on:click="destroyUser()"
+                        name="Delete"
+                        type="submit"
+                        id="submit"
+                        class="btn btn-outline-custom"
+                      >
+                        Delete Account
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -83,49 +118,6 @@
         </div>
       </div>
     </section>
-
-    <form v-on:submit.prevent="updateUser()">
-      <br />
-      <strong>Update Your Account Information</strong>
-      <ul>
-        <li class="error" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <label>
-        Username:
-        <input type="text" v-model="editUserParams.username" />
-      </label>
-      <br />
-      <label>
-        Email Address:
-        <input type="text" v-model="editUserParams.email" />
-      </label>
-      <br />
-      <label>
-        Password:
-        <input type="text" v-model="editUserParams.password" />
-      </label>
-      <br />
-      <label>
-        Password Confirmation:
-        <input type="text" v-model="editUserParams.password_confirmation" />
-      </label>
-      <br />
-      <label>
-        Biography:
-        <input type="text" v-model="editUserParams.biography" />
-      </label>
-      <br />
-      <label>
-        Currently Reading:
-        <input type="text" v-model="editUserParams.currently_reading" />
-      </label>
-      <br />
-      <input type="submit" value="Save Changes" />
-      <br />
-      <button v-on:click="destroyUser()">Delete Account</button>
-    </form>
   </div>
 </template>
 
