@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
           <div class="col-8">
             <article class="post">
-              <h1 class="text-center mt-0 mb-5 pb-3 text"><b>Signup</b></h1>
+              <h1 class="text-center mt-0 mb-5 pb-3 text">Signup</h1>
               <form v-on:submit.prevent="submit()" action="#" method="post" class="mt-4">
                 <ul>
                   <li class="text-danger" v-for="error in errors" v-bind:key="error">
@@ -64,7 +64,7 @@
                 </div>
                 <div class="row">
                   <div class="col-sm-12">
-                    <div class="form-group text-right">
+                    <div class="form-group text-center">
                       <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">
                         Create Account
                       </button>

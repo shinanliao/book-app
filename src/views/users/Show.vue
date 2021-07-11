@@ -5,22 +5,22 @@
         <div class="row">
           <div class="col-lg-8">
             <article class="post">
-              <h2 class="text-center mt-0 mb-4 pb-0 text">
+              <h2 class="text-center mt-0 mb-2 pb-0 text">
                 <b>{{ user.username }}'s Profile</b>
               </h2>
-              <p class="text-center text-center mt-0 mb-4 pb-3 text">
+              <h6 class="text-center text-center mt-0 mb-4 pb-3 text">
                 {{ user.biography }}
-              </p>
-              <h5 class="text-center mt-0 mb-4 pb-0 text"><b>I'm Currently Reading:</b></h5>
-              <p class="text-center text-center mt-0 mb-4 pb-3 text">
+              </h6>
+              <h5 class="text-center mt-0 mb-2 pb-0 text"><b>Currently Reading:</b></h5>
+              <h6 class="text-center text-center mt-0 mb-4 pb-3 text">
                 {{ user.currently_reading }}
-              </p>
+              </h6>
               <div class="text-center">
                 <router-link to="/user_books" class="btn btn-outline-custom">My Bookshelf</router-link>
               </div>
               <br />
               <br />
-              <h5 class="text-center mt-0 mb-2 pb-3 text"><b>Update Account</b></h5>
+              <h5 class="text-center mt-0 mb-2 pb-0 text"><b>Update Account</b></h5>
               <form v-on:submit.prevent="updateUser()" action="#" method="post" class="mt-4">
                 <ul>
                   <li class="error" v-for="error in errors" v-bind:key="error">
