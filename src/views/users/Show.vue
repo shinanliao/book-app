@@ -3,9 +3,7 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <!-- Content-->
           <div class="col-lg-8">
-            <!-- Post-->
             <article class="post">
               <h2 class="text-center mt-0 mb-4 pb-0 text">
                 <b>{{ user.username }}'s Profile</b>

@@ -1,38 +1,82 @@
 <template>
   <div class="signup">
-    <form v-on:submit.prevent="submit()">
-      <h1>Signup</h1>
-      <ul>
-        <li class="text-danger" v-for="error in errors" v-bind:key="error">
-          {{ error }}
-        </li>
-      </ul>
-      <div class="form-group">
-        <label>Username:</label>
-        <input type="text" class="form-control" v-model="newUserParams.username" />
+    <section class="section">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <article class="post">
+              <h1 class="text-center mt-0 mb-5 pb-3 text"><b>Signup</b></h1>
+              <form v-on:submit.prevent="submit()" action="#" method="post" class="mt-4">
+                <ul>
+                  <li class="text-danger" v-for="error in errors" v-bind:key="error">
+                    {{ error }}
+                  </li>
+                </ul>
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="Username" type="text" v-model="newUserParams.username" />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="Email" type="text" v-model="newUserParams.email" />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input class="form-control" placeholder="Password" type="text" v-model="newUserParams.password" />
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input
+                        class="form-control"
+                        placeholder="Password Confirmation"
+                        type="text"
+                        v-model="newUserParams.password_confirmation"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <input
+                        class="form-control"
+                        placeholder="Currently Reading"
+                        v-model="newUserParams.currently_reading"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <textarea
+                        class="form-control"
+                        rows="3"
+                        placeholder="About You"
+                        v-model="newUserParams.biography"
+                      ></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group text-right">
+                      <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">
+                        Create Account
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </article>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label>Email:</label>
-        <input type="email" class="form-control" v-model="newUserParams.email" />
-      </div>
-      <div class="form-group">
-        <label>Password:</label>
-        <input type="password" class="form-control" v-model="newUserParams.password" />
-      </div>
-      <div class="form-group">
-        <label>Password confirmation:</label>
-        <input type="password" class="form-control" v-model="newUserParams.password_confirmation" />
-      </div>
-      <div class="form-group">
-        <label>Biography:</label>
-        <input type="text" class="form-control" v-model="newUserParams.biography" />
-      </div>
-      <div class="form-group">
-        <label>Currently Reading:</label>
-        <input type="text" class="form-control" v-model="newUserParams.currently_reading" />
-      </div>
-      <input type="submit" class="btn btn-primary" value="Submit" />
-    </form>
+    </section>
   </div>
 </template>
 

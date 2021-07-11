@@ -20,7 +20,6 @@
         </div>
 
         <div id="navigation">
-          <!-- Navigation Menu-->
           <ul class="navigation-menu">
             <li>
               <router-link to="/">Home</router-link>
@@ -47,7 +46,6 @@
               <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
             </li>
           </ul>
-          <!-- End navigation menu-->
         </div>
       </div>
     </header>
