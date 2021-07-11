@@ -3,9 +3,7 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <!-- Content-->
           <div class="col-12">
-            <!-- Post-->
             <article class="post">
               <h1 class="text-center mt-0 mb-2 pb-4 text-uppercase">
                 <b>

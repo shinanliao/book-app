@@ -4,7 +4,6 @@
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-8">
-            <!-- Post-->
             <article class="post">
               <ul>
                 <li class="error" v-for="error in errors" v-bind:key="error">
@@ -38,21 +37,21 @@
                               <img v-bind:src="book.volumeInfo.imageLinks.thumbnail" v-bind:alt="book.title" />
                             </span>
                             <br />
-                            <h3 class="text-center mt-2 mb-3 pb-3 text-uppercase">
+                            <h3 class="text-center mt-2 mb-2 pb-1 text">
                               <b>{{ book.volumeInfo.title }}</b>
                             </h3>
-                            <h5 class="text-center mt-0 mb-3 pb-3 text">
+                            <h5 class="text-center mt-0 mb-3 pb-2 text">
                               <b>by {{ book.volumeInfo.authors[0] }}</b>
                             </h5>
-                            <h6 class="text-center mt-0 mb-3 pb-3 text">
-                              <b>{{ book.volumeInfo.description }}</b>
+                            <h6 class="text-left mt-0 mb-3 pb-3 text">
+                              {{ book.volumeInfo.description }}
                             </h6>
-                            <div class="form-group text-right">
+                            <div class="form-group text-center">
                               <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">
                                 Add to Bookshelf
                               </button>
                             </div>
-                            <div class="form-group text-right">
+                            <div class="form-group text-center">
                               <router-link tag="button" :to="`/books/${book.id}`" class="btn btn-outline-custom">
                                 See More Information
                               </router-link>
