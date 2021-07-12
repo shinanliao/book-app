@@ -2,9 +2,7 @@
   <div id="app">
     <header id="topnav">
       <div class="container">
-        <a href="#" class="logo-mobile">
-          <img src="images/logo.png" alt="logo" />
-        </a>
+        <a href="#" class="logo-mobile"></a>
         <div class="menu-extras">
           <div class="menu-item">
             <!-- Mobile menu toggle-->
