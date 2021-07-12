@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
           <div class="col-8">
             <article class="post">
-              <h1 class="text-center mt-0 mb-5 pb-3 text">Login</h1>
+              <h1 class="text-center mt-0 mb-3 pb-3 text">Login</h1>
               <form v-on:submit.prevent="submit()" action="#" method="post" class="mt-4">
                 <ul>
                   <li v-for="error in errors" v-bind:key="error">{{ error }}</li>
@@ -24,6 +24,7 @@
                     </div>
                   </div>
                 </div>
+                <br />
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group text-center">

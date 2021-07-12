@@ -39,7 +39,7 @@ const routes = [
   },
   {
     path: "/user_books",
-    name: "user_books",
+    name: "bookshelf",
     component: UserBooks,
   },
   {

@@ -10,20 +10,19 @@
                 <img :src="book.volumeInfo.imageLinks.thumbnail" alt="Image Not Available" class="img-fluid rounded" />
               </div>
               <h3 class="text-center mt-3 mb-8 pb-1 text">
-                <p>{{ book.volumeInfo.title }} by {{ book.volumeInfo.authors[0] }}</p>
-              </h3>
-              <div class="blog-detail-description">
-                <h6 class="text-left mt-0 mb-2 pb-2 text">
-                  <p>{{ book.volumeInfo.description }}</p>
-                </h6>
-                <h6 class="text-left mt-2 mb-2 pb-1 text">
+                <p>
+                  {{ book.volumeInfo.title }}
+                  <br />
+                  by {{ book.volumeInfo.authors[0] }}
+                </p>
+                <h6 class="text-center mt-1 mb-1 pb-0 text">
                   <b>{{ book.volumeInfo.categories[0] }}</b>
                 </h6>
-                <h6 class="text-left mt-2 mb-2 pb-1 text">
+                <h6 class="text-center mt-1 mb-3 pb-1 text">
                   <b>{{ book.volumeInfo.pageCount }} pages</b>
                 </h6>
-              </div>
-              <div class="form-group text-right">
+              </h3>
+              <div class="form-group text-center">
                 <button
                   v-on:click="addBooktoShelf()"
                   name="Delete"
@@ -34,6 +33,9 @@
                   Add to Bookshelf
                 </button>
               </div>
+              <h6 class="text-left mt-4 mb-4 pb-4 text">
+                <p>{{ book.volumeInfo.description }}</p>
+              </h6>
             </article>
           </div>
         </div>

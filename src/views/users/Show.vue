@@ -5,10 +5,10 @@
         <div class="row">
           <div class="col-lg-8">
             <article class="post">
-              <h2 class="text-center mt-0 mb-2 pb-0 text">
+              <h2 class="text-center mt-0 mb-2 pb-1 text">
                 <b>{{ user.username }}'s Profile</b>
               </h2>
-              <h6 class="text-center text-center mt-0 mb-4 pb-3 text">
+              <h6 class="text-center text-center mt-2 mb-4 pb-3 text">
                 {{ user.biography }}
               </h6>
               <h5 class="text-center mt-0 mb-2 pb-0 text"><b>Currently Reading:</b></h5>

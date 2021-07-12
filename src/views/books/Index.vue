@@ -37,13 +37,13 @@
                               <img v-bind:src="book.volumeInfo.imageLinks.thumbnail" v-bind:alt="book.title" />
                             </span>
                             <br />
-                            <h3 class="text-center mt-2 mb-2 pb-1 text">
+                            <h3 class="text-center mt-3 mb-2 pb-2 text">
                               <b>{{ book.volumeInfo.title }}</b>
                             </h3>
-                            <h5 class="text-center mt-0 mb-3 pb-2 text">
+                            <h5 class="text-center mt-0 mb-2 pb-2 text">
                               <b>by {{ book.volumeInfo.authors[0] }}</b>
                             </h5>
-                            <h6 class="text-left mt-0 mb-3 pb-3 text">
+                            <h6 class="text-left mt-0 mb-2 pb-3 text">
                               {{ book.volumeInfo.description }}
                             </h6>
                             <div class="form-group text-center">
@@ -56,6 +56,7 @@
                                 See More Information
                               </router-link>
                             </div>
+                            <br />
                           </form>
                         </div>
                       </div>

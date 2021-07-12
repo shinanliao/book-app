@@ -47,9 +47,10 @@
         </div>
       </div>
     </header>
-    <div v-if="flashMessage">
+    <div v-if="flashMessage" class="text-center">
       {{ flashMessage }}
-      <button v-on:click="flashMessage = ''">Dismiss</button>
+      <br />
+      <button v-on:click="flashMessage = ''" class="btn btn-outline-custom">Dismiss</button>
     </div>
     <router-view />
   </div>

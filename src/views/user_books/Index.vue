@@ -1,35 +1,87 @@
 <template>
   <div class="user_books">
-    <h2>My Bookshelf</h2>
-    <div v-for="user_book in user_books" v-bind:key="user_book.id">
-      <span class="image">
-        <img v-bind:src="user_book.book.image" />
-      </span>
-      <br />
-      <strong>Title:</strong>
-      <p>{{ user_book.book.title }}</p>
-      <input type="checkbox" id="checkbox" v-model="user_book.have_read" v-on:click="updateHaveRead(user_book)" />
-      <label for="checkbox">{{ message }}</label>
-      <br />
-      <strong>Description:</strong>
-      <p>{{ user_book.book.description }}</p>
-      <strong>Comments:</strong>
-      <p>{{ user_book.comments }}</p>
-      <form v-on:submit.prevent="editUserBook(user_book)">
-        <ul>
-          <li class="error" v-for="error in errors" v-bind:key="error">
-            {{ error }}
-          </li>
-        </ul>
-        <label>
-          <input type="text" v-model="user_book.comments" placeholder="Write comments here" />
-        </label>
-        <input type="submit" value="Save Changes" />
-      </form>
-      <button v-on:click="destroyBook(user_book)">Delete Book From Shelf</button>
-      <br />
-      <br />
-    </div>
+    <section class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <article class="post">
+              <h1 class="text-center mt-0 mb-4 pb-3 text"><b>My Bookshelf</b></h1>
+              <div v-for="user_book in user_books" v-bind:key="user_book.id">
+                <form v-on:submit.prevent="editUserBook(user_book)">
+                  <ul>
+                    <li class="error" v-for="error in errors" v-bind:key="error">
+                      {{ error }}
+                    </li>
+                  </ul>
+                  <div class="post-content text-center">
+                    <span class="image">
+                      <img v-bind:src="user_book.book.image" />
+                    </span>
+                  </div>
+                  <h6 class="text-center mt-3 mb-8 pb-6 text">
+                    <b>{{ user_book.book.description }}</b>
+                  </h6>
+                  <div class="post-content text-center">
+                    <label for="checkbox">
+                      <h6 class="text-center mt-3 mb-8 pb-1 text">
+                        {{ message }}
+                      </h6>
+                    </label>
+                    <input
+                      type="checkbox"
+                      id="checkbox"
+                      v-model="user_book.have_read"
+                      v-on:click="updateHaveRead(user_book)"
+                    />
+                    <h5 class="text-center mt-1 mb-2 pb-1 text">My thoughts on {{ user_book.book.title }}:</h5>
+                    <h6 class="text-center mt-1 mb-4 pb-1 text">" {{ user_book.comments }} "</h6>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group">
+                        <textarea
+                          id="comment"
+                          class="form-control"
+                          rows="2"
+                          placeholder="Book Comments"
+                          v-model="user_book.comments"
+                        ></textarea>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group text-center">
+                        <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">
+                          Save Comments
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-sm-12">
+                      <div class="form-group text-center">
+                        <button
+                          v-on:click="destroyBook(user_book)"
+                          name="Delete"
+                          type="submit"
+                          id="submit"
+                          class="btn btn-outline-custom"
+                        >
+                          Delete this Book
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+                <br />
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+      <!-- end container -->
+    </section>
   </div>
 </template>
 
@@ -42,7 +94,7 @@ export default {
     return {
       user_books: {},
       errors: [],
-      message: "Have Read",
+      message: "Have Read ",
     };
   },
   created: function () {
