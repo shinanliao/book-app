@@ -3,9 +3,9 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-10">
             <article class="post">
-              <h1 class="text-center mt-0 mb-4 pb-3 text"><b>My Bookshelf</b></h1>
+              <h1 class="text-center mt-0 mb-4 pb-5 text">My Bookshelf</h1>
               <div v-for="user_book in user_books" v-bind:key="user_book.id">
                 <form v-on:submit.prevent="editUserBook(user_book)">
                   <ul>
@@ -18,23 +18,29 @@
                       <img v-bind:src="user_book.book.image" />
                     </span>
                   </div>
-                  <h6 class="text-center mt-3 mb-8 pb-6 text">
+                  <h4 class="text-center mt-3 mb-8 pb-1 text">
+                    {{ user_book.book.title }}
+                  </h4>
+                  <h6 class="text-left mt-3 mb-8 pb-6 text">
                     <b>{{ user_book.book.description }}</b>
                   </h6>
                   <div class="post-content text-center">
                     <label for="checkbox">
-                      <h6 class="text-center mt-3 mb-8 pb-1 text">
+                      <h6 class="text-center mt-3 mb-6 pb-1 text">
                         {{ message }}
                       </h6>
                     </label>
                     <input
                       type="checkbox"
                       id="checkbox"
+                      class="checkbox"
                       v-model="user_book.have_read"
                       v-on:click="updateHaveRead(user_book)"
                     />
-                    <h5 class="text-center mt-1 mb-2 pb-1 text">My thoughts on {{ user_book.book.title }}:</h5>
-                    <h6 class="text-center mt-1 mb-4 pb-1 text">" {{ user_book.comments }} "</h6>
+                    <h6 class="text-left mt-1 mb-2 pb-1 text">
+                      <b>My thoughts on {{ user_book.book.title }}:</b>
+                    </h6>
+                    <h6 class="text-left mt-2 mb-1 pb-4 text">{{ user_book.comments }}</h6>
                   </div>
                   <div class="row">
                     <div class="col-sm-12">
@@ -49,9 +55,10 @@
                       </div>
                     </div>
                   </div>
+                  <br />
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="form-group text-center">
+                      <div class="form-group text-right">
                         <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">
                           Save Comments
                         </button>
@@ -60,7 +67,7 @@
                   </div>
                   <div class="row">
                     <div class="col-sm-12">
-                      <div class="form-group text-center">
+                      <div class="form-group text-right">
                         <button
                           v-on:click="destroyBook(user_book)"
                           name="Delete"
@@ -85,7 +92,11 @@
   </div>
 </template>
 
-<style></style>
+<style>
+.checkbox {
+  margin-left: 10px;
+}
+</style>
 
 <script>
 import axios from "axios";
@@ -94,7 +105,7 @@ export default {
     return {
       user_books: {},
       errors: [],
-      message: "Have Read ",
+      message: "Have Read",
     };
   },
   created: function () {
@@ -137,6 +148,7 @@ export default {
         .then((response) => {
           console.log(response.data);
           this.user_book = response.data;
+          // this.user_book.comments = {};
         })
         .catch((error) => {
           this.errors = error.response.data.errors;

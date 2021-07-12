@@ -38,8 +38,8 @@ const routes = [
     component: UsersShow,
   },
   {
-    path: "/user_books",
-    name: "bookshelf",
+    path: "/bookshelf",
+    name: "books-show",
     component: UserBooks,
   },
   {

@@ -2,7 +2,9 @@
   <div id="app">
     <header id="topnav">
       <div class="container">
-        <a href="#" class="logo-mobile"></a>
+        <a href="#" class="logo-mobile">
+          <img src="images/logo.png" alt="logo" />
+        </a>
         <div class="menu-extras">
           <div class="menu-item">
             <!-- Mobile menu toggle-->
@@ -32,7 +34,7 @@
               <router-link :to="`/users/${userID()}`" v-if="isLoggedIn()">My Profile</router-link>
             </li>
             <li>
-              <router-link to="/user_books" v-if="isLoggedIn()">My Bookshelf</router-link>
+              <router-link to="/bookshelf" v-if="isLoggedIn()">My Bookshelf</router-link>
             </li>
             <li>
               <router-link to="/books" v-if="isLoggedIn()">

@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <div class="col-12">
+          <div class="col-10">
             <article class="post">
               <div v-for="book in books" v-bind:key="book.id"></div>
               <div class="post-content text-center">
@@ -69,7 +69,7 @@ export default {
         .post("/user_books", this.newBookParam)
         .then((response) => {
           console.log("Successfully Added!", response.data);
-          this.$router.push("/user_books");
+          this.$router.push("/bookshelf");
         })
         .catch((error) => {
           console.log(error.response.data.errors);

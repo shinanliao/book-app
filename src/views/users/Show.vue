@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-10">
             <article class="post">
               <h2 class="text-center mt-0 mb-2 pb-1 text">
                 <b>{{ user.username }}'s Profile</b>

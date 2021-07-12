@@ -28,7 +28,7 @@
             <section class="section">
               <div class="container">
                 <div class="row">
-                  <div class="col-lg-8">
+                  <div class="col-lg-10">
                     <article class="post">
                       <div class="text-center post-header">
                         <div v-for="book in books" v-bind:key="book.id">
@@ -91,7 +91,7 @@ export default {
         .post("/user_books", { google_books_api_id: book.id })
         .then((response) => {
           console.log("Successfully Added!", response.data);
-          this.$router.push("/user_books");
+          this.$router.push("/bookshelf");
         })
         .catch((error) => {
           console.log(error.response.data.errors);
