@@ -10,7 +10,7 @@
                   {{ error }}
                 </li>
               </ul>
-              <h3 class="text-center mt-0 mb-5 pb-3 text-uppercase"><b>Search for a Book</b></h3>
+              <h2 class="text-center mt-0 mb-5 pb-3 text-uppercase"><b>Search for a Book</b></h2>
               <div class="form-group text-center">
                 <input class="form-control" placeholder="Title or Author" type="text" v-model="query" />
               </div>

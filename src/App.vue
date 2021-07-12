@@ -2,9 +2,7 @@
   <div id="app">
     <header id="topnav">
       <div class="container">
-        <a href="#" class="logo-mobile">
-          <img src="images/logo.png" alt="logo" />
-        </a>
+        <a href="#" class="logo-mobile"></a>
         <div class="menu-extras">
           <div class="menu-item">
             <!-- Mobile menu toggle-->
@@ -50,8 +48,7 @@
       </div>
     </header>
     <div v-if="flashMessage" class="text-center">
-      {{ flashMessage }}
-      <br />
+      <h6>{{ flashMessage }}</h6>
       <button v-on:click="flashMessage = ''" class="btn btn-outline-custom">Dismiss</button>
     </div>
     <router-view />

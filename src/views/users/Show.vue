@@ -16,7 +16,7 @@
                 {{ user.currently_reading }}
               </h6>
               <div class="text-center">
-                <router-link to="/user_books" class="btn btn-outline-custom">My Bookshelf</router-link>
+                <router-link to="/bookshelf" class="btn btn-outline-custom">My Bookshelf</router-link>
               </div>
               <br />
               <br />

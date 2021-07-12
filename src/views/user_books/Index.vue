@@ -5,7 +5,7 @@
         <div class="row">
           <div class="col-lg-10">
             <article class="post">
-              <h1 class="text-center mt-0 mb-4 pb-5 text">My Bookshelf</h1>
+              <h2 class="text-center mt-0 mb-4 pb-5 text"><b>My Bookshelf</b></h2>
               <div v-for="user_book in user_books" v-bind:key="user_book.id">
                 <form v-on:submit.prevent="editUserBook(user_book)">
                   <ul>
@@ -40,7 +40,9 @@
                     <h6 class="text-left mt-1 mb-2 pb-1 text">
                       <b>My thoughts on {{ user_book.book.title }}:</b>
                     </h6>
-                    <h6 class="text-left mt-2 mb-1 pb-4 text">{{ user_book.comments }}</h6>
+                    <i>
+                      <h6 class="text-left mt-2 mb-1 pb-4 text">{{ user_book.comments }}</h6>
+                    </i>
                   </div>
                   <div class="row">
                     <div class="col-sm-12">
@@ -49,19 +51,16 @@
                           id="comment"
                           class="form-control"
                           rows="2"
-                          placeholder="Book Comments"
-                          v-model="user_book.comments"
+                          placeholder="Comments"
+                          v-model="new_comment"
                         ></textarea>
                       </div>
                     </div>
                   </div>
-                  <br />
                   <div class="row">
                     <div class="col-sm-12">
                       <div class="form-group text-right">
-                        <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">
-                          Save Comments
-                        </button>
+                        <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">Save</button>
                       </div>
                     </div>
                   </div>
@@ -104,6 +103,7 @@ export default {
   data: function () {
     return {
       user_books: {},
+      new_comment: "",
       errors: [],
       message: "Have Read",
     };
@@ -140,15 +140,16 @@ export default {
       }
     },
     editUserBook: function (user_book) {
+      user_book.comments = this.new_comment;
       var params = {
-        comments: user_book.comments,
+        comments: this.new_comment,
       };
       axios
         .patch(`/user_books/${user_book.id}`, params)
         .then((response) => {
           console.log(response.data);
-          this.user_book = response.data;
-          // this.user_book.comments = {};
+          user_book = response.data;
+          this.new_comment = "";
         })
         .catch((error) => {
           this.errors = error.response.data.errors;
