@@ -21,6 +21,9 @@
                 <h6 class="text-center mt-1 mb-3 pb-1 text">
                   <b>{{ book.volumeInfo.pageCount }} pages</b>
                 </h6>
+                <h6 class="text-center mt-1 mb-3 pb-1 text">
+                  <b>Published by {{ book.volumeInfo.publisher }}</b>
+                </h6>
               </h3>
               <div class="form-group text-center">
                 <button

@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-10">
+          <div class="col-lg-8">
             <article class="post">
               <h2 class="text-center mt-0 mb-4 pb-5 text"><b>My Bookshelf</b></h2>
               <div v-for="user_book in user_books" v-bind:key="user_book.id">
@@ -19,8 +19,11 @@
                     </span>
                   </div>
                   <h4 class="text-center mt-3 mb-8 pb-1 text">
-                    {{ user_book.book.title }}
+                    <b>{{ user_book.book.title }}</b>
                   </h4>
+                  <h5 class="text-center mt-1 mb-1 pb-1 text">
+                    <b>by {{ user_book.book.author }}</b>
+                  </h5>
                   <h6 class="text-left mt-3 mb-8 pb-6 text">
                     <b>{{ user_book.book.description }}</b>
                   </h6>
@@ -93,7 +96,7 @@
 
 <style>
 .checkbox {
-  margin-left: 10px;
+  margin-left: 5px;
 }
 </style>
 

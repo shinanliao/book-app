@@ -95,7 +95,9 @@
                 <div class="row">
                   <div class="col-sm-12">
                     <div class="form-group text-right">
-                      <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">Send</button>
+                      <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">
+                        Update Account
+                      </button>
                     </div>
                     <div class="form-group text-right">
                       <button
@@ -103,7 +105,7 @@
                         name="Delete"
                         type="submit"
                         id="submit"
-                        class="btn btn-outline-custom"
+                        class="btn btn-outline-dark"
                       >
                         Delete Account
                       </button>
@@ -153,7 +155,7 @@ export default {
         });
     },
     destroyUser: function () {
-      if (confirm("Are you sure you want to delete your account?")) {
+      if (confirm("Are you sure you want to delete your account? ")) {
         axios
           .delete(`/users/${this.user.id}`)
           .then((response) => {
