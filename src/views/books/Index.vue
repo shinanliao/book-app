@@ -10,7 +10,10 @@
                   {{ error }}
                 </li>
               </ul>
-              <h2 class="text-center mt-0 mb-5 pb-3 text-uppercase"><b>Search for a Book</b></h2>
+              <h2 class="text-center mt-0 mb-5 pb-3 text-uppercase">
+                <b>Search</b>
+                <i class="mdi mdi-magnify noti-icon"></i>
+              </h2>
               <div class="form-group text-center">
                 <input class="form-control" placeholder="Title or Author" type="text" v-model="query" />
               </div>
@@ -28,7 +31,7 @@
             <section class="section">
               <div class="container">
                 <div class="row">
-                  <div class="col-lg-10">
+                  <div class="col-lg-12">
                     <article class="post">
                       <div class="text-center post-header">
                         <div v-for="book in books" v-bind:key="book.id">
@@ -37,14 +40,14 @@
                               <img v-bind:src="book.volumeInfo.imageLinks.thumbnail" v-bind:alt="book.title" />
                             </span>
                             <br />
-                            <h3 class="text-center mt-3 mb-2 pb-2 text">
+                            <h5 class="text-center mt-3 mb-1 pb-1 text">
                               <b>{{ book.volumeInfo.title }}</b>
-                            </h3>
-                            <h5 class="text-center mt-0 mb-2 pb-2 text">
-                              <b>by {{ book.volumeInfo.authors[0] }}</b>
                             </h5>
+                            <h6 class="text-center mt-0 mb-2 pb-2 text-uppercase">
+                              <b>by {{ book.volumeInfo.authors[0] }}</b>
+                            </h6>
                             <h6 class="text-left mt-0 mb-2 pb-3 text">
-                              {{ book.volumeInfo.description }}
+                              <b>{{ book.volumeInfo.description }}</b>
                             </h6>
                             <div class="form-group text-center">
                               <button name="submit" type="submit" id="submit" class="btn btn-outline-custom">

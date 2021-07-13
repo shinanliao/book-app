@@ -9,22 +9,14 @@
               <div class="post-content text-center">
                 <img :src="book.volumeInfo.imageLinks.thumbnail" alt="Image Not Available" class="img-fluid rounded" />
               </div>
-              <h3 class="text-center mt-3 mb-8 pb-1 text">
-                <p>
+              <h4 class="text-center mt-3 mb-8 pb-1 text">
+                <b>
                   {{ book.volumeInfo.title }}
-                  <br />
-                  by {{ book.volumeInfo.authors[0] }}
-                </p>
-                <h6 class="text-center mt-1 mb-1 pb-0 text">
-                  <b>{{ book.volumeInfo.categories[0] }}</b>
-                </h6>
-                <h6 class="text-center mt-1 mb-3 pb-1 text">
-                  <b>{{ book.volumeInfo.pageCount }} pages</b>
-                </h6>
-                <h6 class="text-center mt-1 mb-3 pb-1 text">
-                  <b>Published by {{ book.volumeInfo.publisher }}</b>
-                </h6>
-              </h3>
+                </b>
+              </h4>
+              <h5 class="text-center mt-1 mb-7 pb-3 text-uppercase">
+                <b>by {{ book.volumeInfo.authors[0] }}</b>
+              </h5>
               <div class="form-group text-center">
                 <button
                   v-on:click="addBooktoShelf()"
@@ -35,9 +27,25 @@
                 >
                   Add to Bookshelf
                 </button>
+                <br />
               </div>
+              <h6 class="text-center mt-4 mb-1 pb-1 text">
+                <b>{{ book.volumeInfo.categories[0] }}</b>
+              </h6>
+              <h6 class="text-center mt-1 mb-1 pb-1 text">
+                <b>{{ book.volumeInfo.pageCount }} pages</b>
+              </h6>
+              <h6 class="text-center mt-1 mb-1 pb-1 text">
+                <b>Published by {{ book.volumeInfo.publisher }}</b>
+              </h6>
+              <h6 class="text-center mt-1 mb-1 pb-1 text">
+                <b>
+                  {{ book.volumeInfo.ratingsCount }} people read this book and rated it a
+                  {{ book.volumeInfo.averageRating }}
+                </b>
+              </h6>
               <h6 class="text-left mt-4 mb-4 pb-4 text">
-                <p>{{ book.volumeInfo.description }}</p>
+                <b>{{ book.volumeInfo.description }}</b>
               </h6>
             </article>
           </div>

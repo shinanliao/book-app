@@ -5,22 +5,22 @@
         <div class="row">
           <div class="col-lg-10">
             <article class="post">
-              <h2 class="text-center mt-0 mb-2 pb-1 text">
+              <h1 class="text-center mt-0 mb-1 pb-1 text">
                 <b>{{ user.username }}'s Profile</b>
-              </h2>
-              <h6 class="text-center text-center mt-2 mb-4 pb-3 text">
-                {{ user.biography }}
+              </h1>
+              <h6 class="text-center text-center mt-3 mb-1 pb-1 text">
+                <b>{{ user.biography }}</b>
               </h6>
-              <h5 class="text-center mt-0 mb-2 pb-0 text"><b>Currently Reading:</b></h5>
-              <h6 class="text-center text-center mt-0 mb-4 pb-3 text">
-                {{ user.currently_reading }}
+              <h5 class="text-center mt-4 mb-2 pb-1 text"><b>Currently Reading:</b></h5>
+              <h6 class="text-center text-center mt-0 mb-4 pb-1 text">
+                <b>{{ user.currently_reading }}</b>
               </h6>
               <div class="text-center">
                 <router-link to="/bookshelf" class="btn btn-outline-custom">My Bookshelf</router-link>
               </div>
               <br />
               <br />
-              <h5 class="text-center mt-0 mb-2 pb-0 text"><b>Update Account</b></h5>
+              <h5 class="text-center mt-0 mb-2 pb-0 text-uppercase"><b>Update Account Information</b></h5>
               <form v-on:submit.prevent="updateUser()" action="#" method="post" class="mt-4">
                 <ul>
                   <li class="error" v-for="error in errors" v-bind:key="error">
@@ -84,7 +84,7 @@
                       <textarea
                         id="comment"
                         class="form-control"
-                        rows="5"
+                        rows="4"
                         placeholder="About Me"
                         v-model="editUserParams.biography"
                       ></textarea>

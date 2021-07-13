@@ -3,9 +3,11 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8">
+          <div class="col-lg-10">
             <article class="post">
-              <h2 class="text-center mt-0 mb-4 pb-5 text"><b>My Bookshelf</b></h2>
+              <h1 class="text-center mt-0 mb-4 pb-5 text">
+                <b>My Bookshelf</b>
+              </h1>
               <div v-for="user_book in user_books" v-bind:key="user_book.id">
                 <form v-on:submit.prevent="editUserBook(user_book)">
                   <ul>
@@ -17,20 +19,16 @@
                     <span class="image">
                       <img v-bind:src="user_book.book.image" />
                     </span>
-                  </div>
-                  <h4 class="text-center mt-3 mb-8 pb-1 text">
-                    <b>{{ user_book.book.title }}</b>
-                  </h4>
-                  <h5 class="text-center mt-1 mb-1 pb-1 text">
-                    <b>by {{ user_book.book.author }}</b>
-                  </h5>
-                  <h6 class="text-left mt-3 mb-8 pb-6 text">
-                    <b>{{ user_book.book.description }}</b>
-                  </h6>
-                  <div class="post-content text-center">
+
+                    <h4 class="text-center mt-4 mb-1 pb-1 text">
+                      <b>{{ user_book.book.title }}</b>
+                    </h4>
+                    <h6 class="text-center mt-2 mb-1 pb-1 text-uppercase">
+                      <b>by {{ user_book.book.author }}</b>
+                    </h6>
                     <label for="checkbox">
-                      <h6 class="text-center mt-3 mb-6 pb-1 text">
-                        {{ message }}
+                      <h6 class="text-center mt-3 mb-1 pb-1 text">
+                        <b>{{ message }}</b>
                       </h6>
                     </label>
                     <input
@@ -40,11 +38,18 @@
                       v-model="user_book.have_read"
                       v-on:click="updateHaveRead(user_book)"
                     />
-                    <h6 class="text-left mt-1 mb-2 pb-1 text">
-                      <b>My thoughts on {{ user_book.book.title }}:</b>
+                  </div>
+                  <h6 class="text-left mt-1 mb-8 pb-6 text">
+                    <b>{{ user_book.book.description }}</b>
+                  </h6>
+                  <div class="post-content text-center">
+                    <h6 class="text-left mt-4 mb-2 pb-1 text">
+                      <b>{{ user_book.book.title }} Review:</b>
                     </h6>
                     <i>
-                      <h6 class="text-left mt-2 mb-1 pb-4 text">{{ user_book.comments }}</h6>
+                      <b>
+                        <h6 class="text-left mt-2 mb-1 pb-4 text">{{ user_book.comments }}</h6>
+                      </b>
                     </i>
                   </div>
                   <div class="row">
@@ -54,7 +59,7 @@
                           id="comment"
                           class="form-control"
                           rows="2"
-                          placeholder="Comments"
+                          placeholder="Review this book"
                           v-model="new_comment"
                         ></textarea>
                       </div>
@@ -89,7 +94,6 @@
           </div>
         </div>
       </div>
-      <!-- end container -->
     </section>
   </div>
 </template>

@@ -29,16 +29,16 @@
               <router-link to="/signup" v-if="!isLoggedIn()">Signup</router-link>
             </li>
             <li>
-              <router-link :to="`/users/${userID()}`" v-if="isLoggedIn()">My Profile</router-link>
+              <router-link to="/books" v-if="isLoggedIn()">
+                Search for a Book
+                <i class="mdi mdi-magnify noti-icon"></i>
+              </router-link>
             </li>
             <li>
               <router-link to="/bookshelf" v-if="isLoggedIn()">My Bookshelf</router-link>
             </li>
             <li>
-              <router-link to="/books" v-if="isLoggedIn()">
-                Search for a Book
-                <i class="mdi mdi-magnify noti-icon"></i>
-              </router-link>
+              <router-link :to="`/users/${userID()}`" v-if="isLoggedIn()">My Profile</router-link>
             </li>
             <li>
               <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
@@ -48,7 +48,10 @@
       </div>
     </header>
     <div v-if="flashMessage" class="text-center">
-      <h6>{{ flashMessage }}</h6>
+      <br />
+      <h6>
+        <b>{{ flashMessage }}</b>
+      </h6>
       <button v-on:click="flashMessage = ''" class="btn btn-outline-custom">Dismiss</button>
     </div>
     <router-view />
