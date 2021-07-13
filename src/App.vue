@@ -52,6 +52,21 @@
       <button v-on:click="flashMessage = ''" class="btn btn-outline-custom">Dismiss</button>
     </div>
     <router-view />
+    <footer>
+      <div class="copy-wrapper">
+        <div class="container">
+          <p class="copyright">Created by Shinan Liao</p>
+          <ul class="socials right-socials">
+            <li>
+              <a href="https://github.com/shinanliao"><i class="mdi mdi-git"></i></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/shinanl/"><i class="mdi mdi-linkedin"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
