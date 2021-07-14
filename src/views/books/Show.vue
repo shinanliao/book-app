@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <div class="col-10">
+          <div class="col-12">
             <article class="post">
               <div v-for="book in books" v-bind:key="book.id"></div>
               <div class="post-content text-center">
@@ -18,6 +18,9 @@
                 <b>by {{ book.volumeInfo.authors[0] }}</b>
               </h5>
               <div class="form-group text-center">
+                <router-link to="/books" class="btn btn-outline-custom">Search for Another Book</router-link>
+              </div>
+              <div class="form-group text-center">
                 <button
                   v-on:click="addBooktoShelf()"
                   name="Delete"
@@ -25,7 +28,7 @@
                   id="submit"
                   class="btn btn-outline-custom"
                 >
-                  Add to Bookshelf
+                  Add to My Bookshelf
                 </button>
                 <br />
               </div>
@@ -44,7 +47,7 @@
                   {{ book.volumeInfo.averageRating }}
                 </b>
               </h6>
-              <h6 class="text-left mt-4 mb-4 pb-4 text">
+              <h6 class="text-center mt-4 mb-4 pb-4 text">
                 <b>{{ book.volumeInfo.description }}</b>
               </h6>
             </article>

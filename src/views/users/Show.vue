@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-10">
+          <div class="col-lg-12">
             <article class="post">
               <h1 class="text-center mt-0 mb-1 pb-1 text">
                 <b>{{ user.username }}'s Profile</b>
@@ -84,7 +84,7 @@
                       <textarea
                         id="comment"
                         class="form-control"
-                        rows="4"
+                        rows="3"
                         placeholder="About Me"
                         v-model="editUserParams.biography"
                       ></textarea>

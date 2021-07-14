@@ -35,10 +35,13 @@
               </router-link>
             </li>
             <li>
-              <router-link to="/bookshelf" v-if="isLoggedIn()">My Bookshelf</router-link>
+              <router-link :to="`/users/${userID()}`" v-if="isLoggedIn()">My Profile</router-link>
             </li>
             <li>
-              <router-link :to="`/users/${userID()}`" v-if="isLoggedIn()">My Profile</router-link>
+              <router-link to="/bookshelf" v-if="isLoggedIn()">
+                My Bookshelf
+                <i class="mdi mdi-book-open-variant"></i>
+              </router-link>
             </li>
             <li>
               <router-link to="/logout" v-if="isLoggedIn()">Logout</router-link>
@@ -61,7 +64,7 @@
           <p class="copyright">Created by Shinan Liao</p>
           <ul class="socials right-socials">
             <li>
-              <a href="https://github.com/shinanliao"><i class="mdi mdi-git"></i></a>
+              <a href="https://github.com/shinanliao"><i class="mdi mdi-github-face"></i></a>
             </li>
             <li>
               <a href="https://www.linkedin.com/in/shinanl/"><i class="mdi mdi-linkedin"></i></a>

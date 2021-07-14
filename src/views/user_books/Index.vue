@@ -3,7 +3,7 @@
     <section class="section">
       <div class="container">
         <div class="row">
-          <div class="col-lg-10">
+          <div class="col-lg-12">
             <article class="post">
               <h1 class="text-center mt-0 mb-4 pb-5 text">
                 <b>My Bookshelf</b>
