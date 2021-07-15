@@ -17,22 +17,7 @@
               <h5 class="text-center mt-1 mb-7 pb-3 text-uppercase">
                 <b>by {{ book.volumeInfo.authors[0] }}</b>
               </h5>
-              <div class="form-group text-center">
-                <router-link to="/books" class="btn btn-outline-custom">Search for Another Book</router-link>
-              </div>
-              <div class="form-group text-center">
-                <button
-                  v-on:click="addBooktoShelf()"
-                  name="Delete"
-                  type="submit"
-                  id="submit"
-                  class="btn btn-outline-custom"
-                >
-                  Add to My Bookshelf
-                </button>
-                <br />
-              </div>
-              <h6 class="text-center mt-4 mb-1 pb-1 text">
+              <h6 class="text-center mt-3 mb-1 pb-1 text">
                 <b>{{ book.volumeInfo.categories[0] }}</b>
               </h6>
               <h6 class="text-center mt-1 mb-1 pb-1 text">
@@ -47,9 +32,24 @@
                   {{ book.volumeInfo.averageRating }}
                 </b>
               </h6>
-              <h6 class="text-center mt-4 mb-4 pb-4 text">
+              <h6 class="text-center mt-3 mb-4 pb-2 text">
                 <b>{{ book.volumeInfo.description }}</b>
               </h6>
+              <div class="form-group text-center">
+                <button
+                  v-on:click="addBooktoShelf()"
+                  name="Delete"
+                  type="submit"
+                  id="submit"
+                  class="btn btn-outline-custom"
+                >
+                  Add to My Bookshelf
+                </button>
+                <br />
+              </div>
+              <div class="form-group text-center">
+                <router-link to="/books" class="btn btn-outline-custom">Search for Another Book</router-link>
+              </div>
             </article>
           </div>
         </div>
